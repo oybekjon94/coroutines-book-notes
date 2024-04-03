@@ -143,6 +143,7 @@ mess. As one person started making a mocha latte and another wanted a black
 coffee, they would ultimately ruin the machine — or worse, the coffee.
 
 ![image](https://github.com/oybekjon94/coroutines-book-notes/assets/91370134/612116fb-67cb-43c0-9065-6a4fe4c055c9)
+
 What are the data structures that you can use in order to safely share data in a
 thread? The most important data structures are `queues` and, as a special case,
 `pipelines`.
