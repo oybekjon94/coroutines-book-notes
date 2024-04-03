@@ -1,5 +1,5 @@
 # coroutines-book-notes
-Notes from Coroutine books
+Notes from Coroutine book
 
 ## Table of Contents
 - Section I
