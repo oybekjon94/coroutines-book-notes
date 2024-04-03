@@ -53,3 +53,29 @@ If the spinner is animating, it means that showLoadingSpinner has not completed.
 Once showLoadingSpinner completes, the upload will start. This means that the
 spinner is not animating anymore. This is happening because when you invoke
 showLoadingSpinner you’re making a blocking call.
+
+## Blocking Calls
+A `blocking call` is a function that only returns when it has completed. In the
+example above, showLoadingSpinner prevents the upload of an image because it
+keeps the `main thread` of execution busy until it returns. But when it returns
+(because running becomes false), the spinner stops rotating.
+So how can you solve this problem and animate the spinner while you’re running
+upload?
+Simply put, you need additional threads on which to execute your long-running
+tasks.
+
+The `main thread` is also known as the `UI thread`, because it’s responsible for
+rendering everything on the screen, and this should be the only thing it does. This
+means that it should manage the rotation of the spinner but not the upload of the
+image — that has nothing to do with the UI. But if the main thread cannot do this
+because that isn’t its job, what can execute the upload task? Well, quite simply, you
+need a `new thread` on which to execute your long-running tasks!
+
+Computers nowadays are far more advanced than they were 20, 15 or even 10 years
+ago. Back then, computers could only have one thread of execution making them
+freeze up if you tried to do multiple things at once. But because of technological
+advancements, your applications support a mechanism known as `multi-threading`.
+It’s the art of having multiple threads, where each can process a piece of work,
+collectively finishing the needed tasks.
+
+## 
